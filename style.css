@@ -1,0 +1,122 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  h2 {
+      text-align: center;
+      font-family: 'Open Sans', sans-serif;
+
+  }
+
+  footer {
+      text-align: center;
+      font-family: 'Open Sans', sans-serif;
+
+  }
+
+  textarea {
+    background: transparent;
+    border: none;
+    resize: none;
+    color: #000000;
+    border-left: 1px solid black;
+    padding: 10px;
+  }
+  
+  .jumbotron {
+    text-align: center;
+    background-color: transparent;
+    color: black;
+    border-radius: 0;
+    border-bottom: 10px solid black;
+  }
+  
+  .description{
+    white-space: pre-wrap;
+  }
+  
+  .time-block{
+    text-align: center;
+    border-radius: 15px;
+  }
+  
+  .row {
+    white-space: pre-wrap;
+    height: 80px;
+    border-top: 1px solid white;;
+  }
+  
+  .hour {
+    background-color: #ffffff;
+    color: #000000;
+    border-top: 1px dashed #000000;
+  }
+  
+  .past {
+    background-color: #e2e203cc;
+    color:black;
+  }
+  
+  .present {
+    background-color: #ff6961;
+    color:black;
+  }
+  
+  .future {
+    background-color: #77dd77;
+    color: black;
+  }
+  
+  .saveBtn {
+    border-left: 1px solid black;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: #06AED5;
+    color: white;
+    padding: 20px;
+  }
+  
+  .saveBtn:hover {
+    font-size: 20px;
+    background-color: green;
+    transition: all .3s ease-in-out;
+  }
+
+  #time-block {
+      width: 100%;
+      text-align: center;
+  }
+
+  .timeslot {
+      background-color: gray;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 20px;
+      border-style: double;
+      border-radius: 20px;
+  }
+
+  label {
+      background-color: hotpink;
+      border-right: black;
+      width:  10%;
+      padding: 20px;
+  }
+
+  input {
+      background-color: gainsboro;
+      width: 75%;
+      padding: 18px;
+      text-align: center;
+  }
+
+
+  @media screen and (max-width: 568px) {
+    body {
+        background-color: purple;
+    }
+}
+
+  

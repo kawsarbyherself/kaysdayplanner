@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="./style.css">
+    
+   
+   <title>Work Day Scheduler</title>
+</head>
+
+<body>
+    <header class="jumbotron">
+        <h1 class="display-3">Work Day Scheduler</h1>
+        <p class="lead">A simple calendar app for scheduling your work day</p>
+        <p id="currentDate" class="lead"></p>
+        <p id="currentDay" class="lead"></p>
+        <p id="currentTime" class="lead"></p>
+        <p id="currentHour" class="lead"></p>
+
+    </header>
+    <div class="container">
+        <h2>Get your day started!</h2>
+        <br>
+        <br>
+        <form class="time-block" id="time-block" method="POST">
+           
+        </form>
+        <br>
+
+    </div>
+
+    
+    
+    <script type="text/javascript">
+
+
+
+        let todoContainer = $(".time-block");
+        let labelTime = ["12am", "1am", "2am", "3am", "4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm"];
+
+
+        let currentDate = moment().format('MMMM Do YYYY');
+        $("#currentDate").text(currentDate);
+
+        let currentDay = moment().format('dddd');
+        $("#currentDay").text(currentDay);
+
+        let currentTime = moment().format('LTS');
+        $("#currentTime").text(currentTime)
+
+
+        for (let i = 0; i < 24; i++) {
+            let button = $("<button>");
+            button.addClass("saveBtn");
+            button.text("Add Event");
+            button.attr("id", "hour-" + i);
+            let createLabel = $("<label>").text(labelTime[i]);
+            let createInput = $("<input>").attr("placeholder", "What shall we do today?")
+            createInput.attr("id", "input-" + i);
+            createInput.addClass("toDo-input");
+            let labelDiv = todoContainer.append(createLabel);
+            let inputDiv = todoContainer.append(createInput);
+            labelDiv.append(inputDiv);
+            todoContainer.append(button);
+
+            
+            let now = new Date().getHours()
+            if (now > i) {
+                $("#input-" + i).addClass("past");
+            } else if (now < i) {
+                $("#input-" + i).addClass("future");
+            } else if (now === i) {
+                $("#input-" + i).addClass("present");
+
+            }
+
+            let savedInput = localStorage.getItem('#input-' + i);
+            $('#input-' + i).val(savedInput);
+
+            
+            $("#hour-" + i).on("click", function (event) {
+                event.preventDefault();
+                localStorage.setItem('#input-' + i, $("#input-" + i).val());
+
+            });
+
+        }
+
+    </script>
+
+
+</body>
+</html>
